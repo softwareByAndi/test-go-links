@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "test go links",
+  "version": "0.0",
+  "description": "manage and use non-secure go links easily",
+  "icons": {
+    "48": "images/icon@48.png",
+    "1024": "images/icon@1024.png"
+  },
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "*://go/*",
+    "*://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+
+}

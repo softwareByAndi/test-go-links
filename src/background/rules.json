@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "http://localhost:3000/"
+      }
+    },
+    "condition": {
+      "urlFilter": "https://go/*",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]
