@@ -4,7 +4,8 @@ export class Background {
     constructor(browser_api) {
         this.api = browser_api;
         this.HOST_NAMES = {
-            GO_DOMAINS: ['https://go/', 'https://dev/', 'https://eng/', 'https://learn/', 'https://docs/', 'https://test/'],
+            GO_DOMAINS: ['go', 'dev', 'eng', 'learn', 'docs', 'git']
+                .map(domain => `https://${domain}/`),
             BLACKLIST: ['chrome*://*', 'localhost', 'http://*'] // blacklist non-secure sites for now.
         };
         this.HOST_REGEX = Object.fromEntries(

@@ -30,9 +30,13 @@ export const DEFAULT_DATA = {
     routes: {
         '404': 'https://http.cat/404',
         'go': {
+            'github': 'https://github.com/softwareByAndi',
             'chat': 'https://chat.openai.com',
             'gmail': 'https://mail.google.com/mail/u/0/#inbox',
             'google_calendar': 'https://calendar.google.com/calendar/r',
+        },
+        'git': {
+            'home': 'https://github.com/softwareByAndi',
         },
         'learn': {
             'vulkan': {
