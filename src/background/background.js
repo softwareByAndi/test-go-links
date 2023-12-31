@@ -65,14 +65,13 @@ export class Background {
 
 
     find_route(raw_url) {
-        const [scheme, url] = raw_url.split('://');
+        const [_scheme, url] = raw_url.split('://');
         const [domain, ...raw_path] = url.split('/');
         const path = raw_path.map(key => this.data?.aliases?.[key] || key)
 
         // window.alert(path)
 
         let states = [{state: this.data?.routes?.[domain], path: ''}]
-        let found = false;
         for (let i = 0; i < path.length; i++) {
             const previous_states = states;
             states = [];
@@ -92,6 +91,7 @@ export class Background {
     }
 
     handleStorageChange(changes, namespace) {
+        // TODO : handle namespace specific changes
         if (changes) {
             console.log(changes)
         }
@@ -99,9 +99,11 @@ export class Background {
 
 
     handleInstall() {
-        db.set_data(db.DEFAULT_DATA).then((data) => {
+        db.set_data(db.DEFAULT_DATA).then(() => {
             console.log('GoLinks installed');
         });
+
+        // FIXME : create returns undefined...
 
         // teach chrome to treat `go/` as a domain instead of as a search
         // this.HOST_NAMES.GO_DOMAINS.forEach(async url => {
