@@ -90,7 +90,7 @@ export class Background {
             : states[0]?.state || this.data.routes['404'];
     }
 
-    handleStorageChange(changes, namespace) {
+    handleStorageChange(changes, _namespace) {
         // TODO : handle namespace specific changes
         if (changes) {
             console.log(changes)
