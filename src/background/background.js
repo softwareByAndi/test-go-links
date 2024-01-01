@@ -6,7 +6,7 @@ export class Background {
         this.HOST_NAMES = {
             GO_DOMAINS: ['go', 'dev', 'eng', 'learn', 'docs', 'git']
                 .map(domain => `https://${domain}/`),
-            BLACKLIST: ['chrome*://*', 'localhost', 'http://*'] // blacklist non-secure sites for now.
+            BLACKLIST: ['localhost', 'http://*'] // blacklist non-secure sites for now.
         };
         this.HOST_REGEX = Object.fromEntries(
             Object.entries(this.HOST_NAMES)
@@ -26,6 +26,7 @@ export class Background {
 
     run() {
         this.registerListeners();
+        console.log('hello world')
     }
 
     registerListeners() {
@@ -90,10 +91,12 @@ export class Background {
             : states[0]?.state || this.data.routes['404'];
     }
 
-    handleStorageChange(changes, _namespace) {
+    async handleStorageChange(changes, _storage_location) {
         // TODO : handle namespace specific changes
+        console.log('handleStorageChange: ', changes, ' : ', _storage_location)
         if (changes) {
-            console.log(changes)
+            this.data = await db.load_data(null);
+            console.log('storage change: ', changes)
         }
     }
 
