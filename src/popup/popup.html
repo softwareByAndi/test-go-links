@@ -3,15 +3,65 @@
 <head>
     <title>Go-Links Manager</title>
 </head>
+
+<style>
+    .flex { display: flex; }
+    .flex-grow { flex-grow: 1; }
+    .items-center { align-items: center; }
+    .flex-wrap { flex-wrap: wrap; }
+    .gap-2 { gap: 0.5rem; }
+    .gap-4 { gap: 1rem; }
+    .hidden { display: none; }
+    button {
+        height: fit-content;
+        max-height: fit-content;
+    }
+    button.active {
+        background-color: /*blue*/ #1e40af;
+        color: white;
+    }
+</style>
+
 <body>
     <h1>Go-Links</h1>
     <hr>
-    <h2>Add New Go-Link</h2>
-    <input type="text" id="newGoLinkKey" placeholder="Enter key">
-    <input type="text" id="newGoLinkURL" placeholder="Enter URL">
-    <button id="saveGoLinkButton">Save Go-Link</button>
+    <nav class="flex gap-2 flex-wrap">
+        <button data-tab-id="page-golinks" class="nav-golink-tabs active">Go-Links</button>
+        <button data-tab-id="page-aliases" class="nav-golink-tabs">Aliases</button>
+    </nav>
     <hr>
-    <div id="goLinksList"></div>
+    <div id="page-golinks" class="tab">
+        <div class="flex items-center">
+            <h2 class="flex-grow">Add New Go-Link</h2>
+            <button id="button-save-golink">Save Go-Link</button>
+        </div>
+        <div class="flex gap-4">
+            <input type="text" id="input-golink-key" placeholder="Enter key">
+            <input type="text" id="input-golink-url" placeholder="Enter URL">
+        </div>
+        <hr>
+        <div>
+            search results go here...
+            <div id="view-golinks"></div>
+        </div>
+    </div>
+
+    <div id="page-aliases" class="tab">
+        <div class="flex items-center">
+            <h2 class="flex-grow">Add New Alias</h2>
+            <button id="button-save-alias">Save alias</button>
+        </div>
+        <div class="flex gap-4">
+            <input type="text" id="input-alias-key" placeholder="Enter alias">
+            <input type="text" id="input-alias-tag" placeholder="Enter tag">
+        </div>
+        <hr>
+        <div>
+            search results go here...
+            <div id="view-aliases"></div>
+        </div>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 </html>
