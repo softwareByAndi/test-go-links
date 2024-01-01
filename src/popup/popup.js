@@ -16,14 +16,14 @@ async function set_data() {
     const key_element = document.getElementById('newGoLinkKey');
     const url_element = document.getElementById('newGoLinkURL');
 
-    const [domain, ...keys] = key_element.value?.split('/');
+    const [domain, ...raw_keys] = key_element.value?.split('/');
     const url = url_element.value;
 
     if (!domain || !url) {
         alert('Please enter a domain and url');
         return;
     }
-    if (keys?.length > MAX_DEPTH) {
+    if (raw_keys?.length > MAX_DEPTH) {
         alert(`Max depth is ${MAX_DEPTH}`);
         return;
     }
@@ -38,6 +38,7 @@ async function set_data() {
         return;
     }
 
+    const keys = raw_keys.map(key => data?.aliases?.[key] || key)
     let current = data.routes[domain];
     const path = [domain];
     let depth = 0;
