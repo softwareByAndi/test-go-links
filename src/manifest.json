@@ -12,7 +12,9 @@
     "webRequest",
     "webRequestBlocking",
     "*://go/*",
-    "*://*/*"
+    "*://git/*",
+    "*://learn/*",
+    "*://docs/*"
   ],
   "background": {
     "scripts": ["background.js"]
