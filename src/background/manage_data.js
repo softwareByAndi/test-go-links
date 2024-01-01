@@ -64,6 +64,8 @@ export const DEFAULT_DATA = {
     aliases: {
         'gh': 'github',
         'git': 'github',
+        'repo': 'repository',
+        'repos': 'repository',
         'l': 'learn',
         'ln': 'learn',
         'lrn': 'learn',
